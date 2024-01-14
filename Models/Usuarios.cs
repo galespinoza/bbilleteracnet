@@ -1,3 +1,4 @@
+namespace billetera.Models;
 public class Usuarios
 {   
     public Guid ID {get;set;}

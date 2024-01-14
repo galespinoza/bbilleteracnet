@@ -1,3 +1,5 @@
+
+namespace billetera.Models;
 public class Pagos
 {   
     public Guid ID {get;set;}

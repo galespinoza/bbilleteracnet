@@ -1,3 +1,4 @@
+namespace billetera.Models;
 public class ObjetivosCompra
 {   
     public Guid ID {get;set;}
