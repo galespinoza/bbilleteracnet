@@ -1,0 +1,6 @@
+@BILLETERA_HostAddress = http://localhost:5193
+
+GET {{BILLETERA_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
