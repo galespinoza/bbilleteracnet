@@ -1,8 +1,14 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace billetera.Models;
 public class Usuarios
 {   
-    public Guid ID {get;set;}
+    [Column("ID")]
+    public string ID {get;set;}
+    [Column("NOMBRE")]
     public string Nombre {get;set;}
+    [Column("EMAIL")]
     public string Email {get;set;}
+    [Column("CONTRASENA")]
     public string Contrasena {get;set;}
 }

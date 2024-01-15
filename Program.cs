@@ -13,8 +13,8 @@ builder.Services.AddSwaggerGen();
 //builder.Services.AddSqlServer<DeudasContext>(builder.Configuration.GetConnectionString("cnBilleteraSQLSERVER"));
 //builder.Services.AddSqlServer<ObjetivosCompraContext>(builder.Configuration.GetConnectionString("cnBilleteraSQLSERVER"));
 //builder.Services.AddSqlServer<PagosContext>(builder.Configuration.GetConnectionString("cnBilleteraSQLSERVER"));
-builder.Services.AddSqlServer<UsuariosContext>(builder.Configuration.GetConnectionString("cnBilleteraSQLSERVER"));
 
+builder.Services.AddOracle<UsuariosContext>(builder.Configuration.GetConnectionString("cnBilleteraORACLE"));
 //builder.Services.AddScoped<IDeudasService, DeudasService>();
 //builder.Services.AddScoped<IObjetivosCompraService, ObjetivosCompraService>();
 //builder.Services.AddScoped<IPagosService, PagosService>();
