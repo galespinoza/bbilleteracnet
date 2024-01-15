@@ -4,7 +4,7 @@ namespace billetera.Models;
 public class Usuarios
 {   
     [Column("ID")]
-    public string ID {get;set;}
+    public Guid ID {get;set;}
     [Column("NOMBRE")]
     public string Nombre {get;set;}
     [Column("EMAIL")]
