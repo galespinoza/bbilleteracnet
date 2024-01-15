@@ -16,6 +16,7 @@ public class UsuariosController : ControllerBase
     }
 
     [HttpGet]
+    [Route("listausuario")]
     public IActionResult Get()
     {
         //_logger.LogInformation("Saludando el mundo");

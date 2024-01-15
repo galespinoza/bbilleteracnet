@@ -12,7 +12,7 @@ public class UsuariosService : IUsuariosService
     }
     public IEnumerable<Usuarios> Get()
     {
-        return context.Usuarioss;
+        return context.Usuarios;
     }
 
     //public void Save(Categoria categoria){
@@ -29,7 +29,7 @@ public class UsuariosService : IUsuariosService
 
     public async Task Update(Guid id,Usuarios Usuarios)
      {
-        var UsuariosActual = context.Usuarioss.Find(id);
+        var UsuariosActual = context.Usuarios.Find(id);
         if (UsuariosActual != null){
             Usuarios.Nombre = UsuariosActual.Nombre;
             Usuarios.Email = UsuariosActual.Email;
@@ -40,7 +40,7 @@ public class UsuariosService : IUsuariosService
 
     public async Task Delete(Guid id)
     {
-        var UsuariosActual = context.Usuarioss.Find(id);
+        var UsuariosActual = context.Usuarios.Find(id);
         if (UsuariosActual != null){
             context.Remove(UsuariosActual);
             await context.SaveChangesAsync();

@@ -5,7 +5,7 @@ namespace billetera.Context;
 
 public class UsuariosContext: DbContext
 {
-    public DbSet<Usuarios> Usuarioss {get;set;}
+    public DbSet<Usuarios> Usuarios {get;set;}
 
     public UsuariosContext(DbContextOptions<UsuariosContext> options) :base(options) { }
 
@@ -16,7 +16,7 @@ public class UsuariosContext: DbContext
 
         modelBuilder.Entity<Usuarios>(Usuarios=>
         {
-            Usuarios.ToTable("Usuarios");
+            Usuarios.ToTable("Usuarios","BILLETERA");
             Usuarios.HasKey(p=> p.ID);
             Usuarios.Property(p=> p.Nombre).IsRequired().HasMaxLength(200);
             Usuarios.Property(p=> p.Email).IsRequired(false);

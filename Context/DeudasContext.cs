@@ -5,7 +5,7 @@ namespace billetera.Context;
 
 public class DeudasContext: DbContext
 {
-    public DbSet<Deudas> Deudass {get;set;}
+    public DbSet<Deudas> Deudas {get;set;}
 
     public DeudasContext(DbContextOptions<DeudasContext> options) :base(options) { }
 

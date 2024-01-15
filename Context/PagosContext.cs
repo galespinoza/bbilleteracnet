@@ -5,7 +5,7 @@ namespace billetera.Context;
 
 public class PagosContext: DbContext
 {
-    public DbSet<Pagos> Pagoss {get;set;}
+    public DbSet<Pagos> Pagos {get;set;}
 
     public PagosContext(DbContextOptions<PagosContext> options) :base(options) { }
 

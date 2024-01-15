@@ -12,7 +12,7 @@ public class DeudasService : IDeudasService
     }
     public IEnumerable<Deudas> Get()
     {
-        return context.Deudass;
+        return context.Deudas;
     }
 
     //public void Save(Categoria categoria){
@@ -29,7 +29,7 @@ public class DeudasService : IDeudasService
 
     public async Task Update(Guid id,Deudas Deudas)
      {
-        var DeudasActual = context.Deudass.Find(id);
+        var DeudasActual = context.Deudas.Find(id);
         if (DeudasActual != null){
             Deudas.Monto = DeudasActual.Monto;
             Deudas.Descripcion = DeudasActual.Descripcion;
@@ -40,7 +40,7 @@ public class DeudasService : IDeudasService
 
     public async Task Delete(Guid id)
     {
-        var DeudasActual = context.Deudass.Find(id);
+        var DeudasActual = context.Deudas.Find(id);
         if (DeudasActual != null){
             context.Remove(DeudasActual);
             await context.SaveChangesAsync();

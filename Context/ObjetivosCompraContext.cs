@@ -5,7 +5,7 @@ namespace billetera.Context;
 
 public class ObjetivosCompraContext: DbContext
 {
-    public DbSet<ObjetivosCompra> ObjetivosCompras {get;set;}
+    public DbSet<ObjetivosCompra> ObjetivosCompra {get;set;}
 
     public ObjetivosCompraContext(DbContextOptions<ObjetivosCompraContext> options) :base(options) { }
 

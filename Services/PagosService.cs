@@ -12,7 +12,7 @@ public class PagosService : IPagosService
     }
     public IEnumerable<Pagos> Get()
     {
-        return context.Pagoss;
+        return context.Pagos;
     }
 
     //public void Save(Categoria categoria){
@@ -29,7 +29,7 @@ public class PagosService : IPagosService
 
     public async Task Update(Guid id,Pagos Pagos)
      {
-        var PagosActual = context.Pagoss.Find(id);
+        var PagosActual = context.Pagos.Find(id);
         if (PagosActual != null){
             Pagos.Monto = PagosActual.Monto;
             Pagos.FechaPago = PagosActual.FechaPago;
@@ -39,7 +39,7 @@ public class PagosService : IPagosService
 
     public async Task Delete(Guid id)
     {
-        var PagosActual = context.Pagoss.Find(id);
+        var PagosActual = context.Pagos.Find(id);
         if (PagosActual != null){
             context.Remove(PagosActual);
             await context.SaveChangesAsync();

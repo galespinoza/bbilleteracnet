@@ -12,7 +12,7 @@ public class ObjetivosCompraService : IObjetivosCompraService
     }
     public IEnumerable<ObjetivosCompra> Get()
     {
-        return context.ObjetivosCompras;
+        return context.ObjetivosCompra;
     }
 
     //public void Save(Categoria categoria){
@@ -29,7 +29,7 @@ public class ObjetivosCompraService : IObjetivosCompraService
 
     public async Task Update(Guid id,ObjetivosCompra ObjetivosCompra)
      {
-        var ObjetivosCompraActual = context.ObjetivosCompras.Find(id);
+        var ObjetivosCompraActual = context.ObjetivosCompra.Find(id);
         if (ObjetivosCompraActual != null){
             ObjetivosCompra.Producto = ObjetivosCompraActual.Producto;
             ObjetivosCompra.Precio = ObjetivosCompraActual.Precio;
@@ -40,7 +40,7 @@ public class ObjetivosCompraService : IObjetivosCompraService
 
     public async Task Delete(Guid id)
     {
-        var ObjetivosCompraActual = context.ObjetivosCompras.Find(id);
+        var ObjetivosCompraActual = context.ObjetivosCompra.Find(id);
         if (ObjetivosCompraActual != null){
             context.Remove(ObjetivosCompraActual);
             await context.SaveChangesAsync();
