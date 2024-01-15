@@ -1,3 +1,6 @@
+using billetera.Context;
+using billetera.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,8 +9,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //inyecion de dependencia 
+builder.Services.AddSqlServer<DeudasContext>(builder.Configuration.GetConnectionString("cnBilletera"));
+builder.Services.AddSqlServer<ObjetivosCompraContext>(builder.Configuration.GetConnectionString("cnBilletera"));
+builder.Services.AddSqlServer<PagosContext>(builder.Configuration.GetConnectionString("cnBilletera"));
+builder.Services.AddSqlServer<UsuariosContext>(builder.Configuration.GetConnectionString("cnBilletera"));
 
-
+builder.Services.AddScoped<IDeudasService, DeudasService>();
+builder.Services.AddScoped<IObjetivosCompraService, ObjetivosCompraService>();
+builder.Services.AddScoped<IPagosService, PagosService>();
+builder.Services.AddScoped<IUsuariosService, UsuariosService>();
 
 var app = builder.Build();
 
