@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using billetera.Models;
-using Oracle.EntityFrameworkCore;
 
 namespace billetera.Context;
 
@@ -8,16 +7,16 @@ public class UsuariosContext: DbContext
 {
     public DbSet<Usuarios> Usuarios {get;set;}
 
-    public UsuariosContext(Microsoft.EntityFrameworkCore.DbContextOptions<UsuariosContext> options) :base(options) { }
+    public UsuariosContext(DbContextOptions<UsuariosContext> options) :base(options) { }
    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       
         List<Usuarios> UsuariosInit = new List<Usuarios>();
-
+        modelBuilder.HasDefaultSchema("BILLETERA");
         modelBuilder.Entity<Usuarios>(Usuarios=>
         {
-            Usuarios.ToTable("USUARIOS","BILLETERA");
+            Usuarios.ToTable("Usuarios");
             Usuarios.HasKey(p=> p.ID);
             Usuarios.Property(p=> p.Nombre).IsRequired().HasMaxLength(200);
             Usuarios.Property(p=> p.Email).IsRequired(false);

@@ -33,13 +33,19 @@ builder.Services.AddSwaggerGen();
 //-------------------------------
 //Entity Framework POSTGRE
 //-------------------------------
-//builder.Services.AddOracle<DeudasContext>(builder.Configuration.GetConnectionString("cnBilleteraORACLE"));
-//builder.Services.AddOracle<ObjetivosCompraContext>(builder.Configuration.GetConnectionString("cnBilleteraORACLE"));
-//builder.Services.AddOracle<PagosContext>(builder.Configuration.GetConnectionString("cnBilleteraORACLE"));
-
-builder.Services.AddDbContext<UsuariosContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("cnBilleteraPOSTGRE")));
+//builder.Services.AddDbContext<DeudasContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("cnBilleteraPOSTGRE")));
+//builder.Services.AddDbContext<ObjetivosCompraContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("cnBilleteraPOSTGRE")));
+//builder.Services.AddDbContext<PagosContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("cnBilleteraPOSTGRE")));
+//builder.Services.AddDbContext<UsuariosContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("cnBilleteraPOSTGRE")));
 //-------------------------------
 
+//-------------------------------
+//Entity Framework MYSQL
+//-------------------------------
+
+
+builder.Services.AddDbContext<UsuariosContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("cnBilleteraMYSQL")));
+//-------------------------------
 
 //builder.Services.AddScoped<IDeudasService, DeudasService>();
 //builder.Services.AddScoped<IObjetivosCompraService, ObjetivosCompraService>();

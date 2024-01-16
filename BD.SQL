@@ -50,6 +50,8 @@ CREATE TABLE BILLETERA.ObjetivosCompra (
 );
 go
 insert into BILLETERA.Usuarios (ID,Nombre,Email,Contrasena)values(NEWID(),'Guido Espinoza','galespinoza9@gmail.com','12345')
+insert into BILLETERA.Usuarios (ID,Nombre,Email,Contrasena)values(NEWID(),'luis Espinoza','galespinoza9@gmail.com','12345')
+
 select * from BILLETERA.Usuarios
 
 -------------------------------
@@ -80,45 +82,49 @@ DROP TABLE BILLETERA.Usuarios;
 
 
 -- Tabla de Usuarios
-CREATE TABLE BILLETERA.Usuarios (
-    ID RAW(16) PRIMARY KEY,
-    Nombre VARCHAR(100),
-    Email VARCHAR(100),
-    Contrasena VARCHAR(100)
+CREATE TABLE BILLETERA."Usuarios" (
+    "ID" RAW(16) PRIMARY KEY,
+    "Nombre" VARCHAR(100),
+    "Email" VARCHAR(100),
+    "Contrasena" VARCHAR(100)
 );
 
 -- Tabla de Deudas
-CREATE TABLE BILLETERA.Deudas (
-    ID RAW(16) PRIMARY KEY,
-    UsuarioID RAW(16),
-    Monto DECIMAL(10, 2),
-    Descripcion VARCHAR(255),
-    FechaDeuda DATE,
-    FOREIGN KEY (UsuarioID) REFERENCES BILLETERA.Usuarios(ID)
+CREATE TABLE BILLETERA."Deudas" (
+    "ID" RAW(16) PRIMARY KEY,
+    "UsuarioID" RAW(16),
+    "Monto" DECIMAL(10, 2),
+    "Descripcion" VARCHAR(255),
+    "FechaDeuda" DATE,
+    FOREIGN KEY ("UsuarioID") REFERENCES BILLETERA."Usuarios"("ID")
 );
 
 -- Tabla de Pagos
-CREATE TABLE BILLETERA.Pagos (
-    ID RAW(16) PRIMARY KEY,
-    DeudaID RAW(16),
-    Monto DECIMAL(10, 2),
-    FechaPago DATE,
-    FOREIGN KEY (DeudaID) REFERENCES BILLETERA.Deudas(ID)
+CREATE TABLE BILLETERA."Pagos" (
+    "ID" RAW(16) PRIMARY KEY,
+    "DeudaID" RAW(16),
+    "Monto" DECIMAL(10, 2),
+    "FechaPago" DATE,
+    FOREIGN KEY ("DeudaID") REFERENCES BILLETERA."Deudas"("ID")
 );
 
 -- Tabla de Objetivos de Compra
-CREATE TABLE BILLETERA.ObjetivosCompra (
-    ID RAW(16) PRIMARY KEY,
-    UsuarioID RAW(16),
-    Producto VARCHAR(100),
-    Precio DECIMAL(10, 2),
-    FechaObjetivo DATE,
-    FOREIGN KEY (UsuarioID) REFERENCES BILLETERA.Usuarios(ID)
+CREATE TABLE BILLETERA."ObjetivosCompra" (
+    "ID" RAW(16) PRIMARY KEY,
+    "UsuarioID" RAW(16),
+    "Producto" VARCHAR(100),
+    "Precio" DECIMAL(10, 2),
+    "FechaObjetivo" DATE,
+    FOREIGN KEY ("UsuarioID") REFERENCES BILLETERA."Usuarios"("ID")
 );
 
 
-select * from BILLETERA.Usuarios
-insert into BILLETERA.Usuarios(ID,Nombre,Email,Contrasena)values(SYS_GUID(),'Guido Espinoza','galespinoza9@gmail.com','12345')
+select * from BILLETERA."Usuarios"
+
+insert into BILLETERA."Usuarios"("ID","Nombre","Email","Contrasena")values(SYS_GUID(),'Guido Espinoza','galespinoza9@gmail.com','12345')
+insert into BILLETERA."Usuarios"("ID","Nombre","Email","Contrasena")values(SYS_GUID(),'juan Espinoza','galespinoza9@gmail.com','12345')
+
+
 
 -------------------------------
 --Entity Framework MYSQL
@@ -173,7 +179,7 @@ CREATE TABLE BILLETERA.ObjetivosCompra (
 -------------------------------
 
 CREATE DATABASE BDBILLETERA
-CREATE SCHEMA BILLETERA 
+CREATE SCHEMA "BILLETERA" 
 
 DROP TABLE BILLETERA.ObjetivosCompra;
 DROP TABLE BILLETERA.Pagos;
@@ -182,46 +188,45 @@ DROP TABLE BILLETERA.Usuarios;
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
--- Tabla de Usuarios
-CREATE TABLE BILLETERA.Usuarios (
-    ID uuid PRIMARY KEY,
-    Nombre VARCHAR(100),
-    Email VARCHAR(100),
-    Contrasena VARCHAR(100)
+-- TABLA DE USUARIOS
+CREATE TABLE "BILLETERA"."Usuarios" (
+    "ID" UUID PRIMARY KEY,
+    "Nombre" VARCHAR(100),
+    "Email" VARCHAR(100),
+    "Contrasena" VARCHAR(100)
 );
 
--- Tabla de Deudas
-CREATE TABLE BILLETERA.Deudas (
-    ID uuid PRIMARY KEY,
-    UsuarioID uuid,
-    Monto DECIMAL(10, 2),
-    Descripcion VARCHAR(255),
-    FechaDeuda DATE,
-    FOREIGN KEY (UsuarioID) REFERENCES BILLETERA.Usuarios(ID)
+-- TABLA DE DEUDAS
+CREATE TABLE "BILLETERA"."Deudas" (
+    "ID" UUID PRIMARY KEY,
+    "UsuarioID" UUID,
+    "Monto" DECIMAL(10, 2),
+    "Descripcion" VARCHAR(255),
+    "FechaDeuda" DATE,
+    FOREIGN KEY ("UsuarioID") REFERENCES "BILLETERA"."Usuarios"("ID")
 );
 
--- Tabla de Pagos
-CREATE TABLE BILLETERA.Pagos (
-    ID uuid PRIMARY KEY,
-    DeudaID uuid,
-    Monto DECIMAL(10, 2),
-    FechaPago DATE,
-    FOREIGN KEY (DeudaID) REFERENCES BILLETERA.Deudas(ID)
+-- TABLA DE PAGOS
+CREATE TABLE "BILLETERA".Pagos (
+    "ID" UUID PRIMARY KEY,
+    "DeudaID" UUID,
+    "Monto" DECIMAL(10, 2),
+    "FechaPago" DATE,
+    FOREIGN KEY ("DeudaID") REFERENCES "BILLETERA"."Deudas"("ID")
 );
 
--- Tabla de Objetivos de Compra
-CREATE TABLE BILLETERA.ObjetivosCompra (
-    ID uuid PRIMARY KEY,
-    UsuarioID uuid,
-    Producto VARCHAR(100),
-    Precio DECIMAL(10, 2),
-    FechaObjetivo DATE,
-    FOREIGN KEY (UsuarioID) REFERENCES BILLETERA.Usuarios(ID)
+-- TABLA DE OBJETIVOS DE COMPRA
+CREATE TABLE "BILLETERA".ObjetivosCompra (
+    "ID" UUID PRIMARY KEY,
+    "UsuarioID" UUID,
+    "Producto" VARCHAR(100),
+    "Precio" DECIMAL(10, 2),
+    "FechaObjetivo" DATE,
+    FOREIGN KEY ("UsuarioID") REFERENCES "BILLETERA"."Usuarios"("ID")
 );
 
 
+select * from "BILLETERA"."Usuarios"
 
-INSERT INTO BILLETERA.Usuarios (ID, Nombre, Email, Contrasena)
-VALUES (uuid_generate_v4(),'Guido Espinoza','galespinoza9@gmail.com','12345')
-
-
+INSERT INTO "BILLETERA"."Usuarios" ("ID", "Nombre", "Email", "Contrasena")VALUES (uuid_generate_v4(),'Guido Espinoza','galespinoza9@gmail.com','12345')
+INSERT INTO "BILLETERA"."Usuarios" ("ID", "Nombre", "Email", "Contrasena")VALUES (uuid_generate_v4(),'pedro Espinoza','galespinoza9@gmail.com','12345')

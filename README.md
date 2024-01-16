@@ -24,10 +24,11 @@ dotnet add package Oracle.ManagedDataAccess.Core
 Entity Framework MYSQL
 -------------------------------
 
-
+dotnet add package MySql.EntityFrameworkCore
 
 -------------------------------
 Entity Framework POSTGRE
 -------------------------------
 
 dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
+
