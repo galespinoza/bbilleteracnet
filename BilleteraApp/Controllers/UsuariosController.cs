@@ -17,7 +17,7 @@ public class UsuariosController : ControllerBase
 
     [HttpGet]
     [Route("listausuario")]
-    public IActionResult Get()
+    public IActionResult ListaUsuario()
     {
         //_logger.LogInformation("Saludando el mundo");
         return Ok(UsuariosService.Get());
@@ -25,25 +25,25 @@ public class UsuariosController : ControllerBase
 
     [HttpPost]
     [Route("guardausuario")]
-    public IActionResult Post([FromBody] Usuarios Usuarios)
+    public IActionResult GuardaUsuario([FromBody] Usuarios usuarios)
     {
         //_logger.LogInformation("Saludando el mundo");
-        UsuariosService.Save(Usuarios);
+        UsuariosService.Save(usuarios);
         return Ok();
     }
 
     [HttpPut("{id}")]
     [Route("actualizausuario")]
-    public IActionResult Put(Guid id, [FromBody] Usuarios Usuarios)
+    public IActionResult ActualizaUsuario(Guid id, [FromBody] Usuarios usuarios)
     {
         //_logger.LogInformation("Saludando el mundo");
-        UsuariosService.Update(id, Usuarios);
+        UsuariosService.Update(id, usuarios);
         return Ok();
     }
 
     [HttpDelete("{id}")]
      [Route("eliminausuario")]
-    public IActionResult Delete(Guid id)
+    public IActionResult EliminaUsuario(Guid id)
     {
         //_logger.LogInformation("Saludando el mundo");
         UsuariosService.Delete(id);
