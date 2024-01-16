@@ -24,6 +24,7 @@ public class UsuariosController : ControllerBase
     }
 
     [HttpPost]
+    [Route("guardausuario")]
     public IActionResult Post([FromBody] Usuarios Usuarios)
     {
         //_logger.LogInformation("Saludando el mundo");
@@ -32,6 +33,7 @@ public class UsuariosController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Route("actualizausuario")]
     public IActionResult Put(Guid id, [FromBody] Usuarios Usuarios)
     {
         //_logger.LogInformation("Saludando el mundo");
@@ -40,6 +42,7 @@ public class UsuariosController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+     [Route("eliminausuario")]
     public IActionResult Delete(Guid id)
     {
         //_logger.LogInformation("Saludando el mundo");

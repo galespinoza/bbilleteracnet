@@ -18,7 +18,7 @@ builder.Services.AddSwaggerGen();
 //builder.Services.AddSqlServer<DeudasContext>(builder.Configuration.GetConnectionString("cnBilleteraSQLSERVER"));
 //builder.Services.AddSqlServer<ObjetivosCompraContext>(builder.Configuration.GetConnectionString("cnBilleteraSQLSERVER"));
 //builder.Services.AddSqlServer<PagosContext>(builder.Configuration.GetConnectionString("cnBilleteraSQLSERVER"));
-//builder.Services.AddSqlServer<UsuariosContext>(builder.Configuration.GetConnectionString("cnBilleteraSQLSERVER"));
+builder.Services.AddSqlServer<UsuariosContext>(builder.Configuration.GetConnectionString("cnBilleteraSQLSERVER"));
 //-------------------------------
 
 //-------------------------------
@@ -42,9 +42,10 @@ builder.Services.AddSwaggerGen();
 //-------------------------------
 //Entity Framework MYSQL
 //-------------------------------
-
-
-builder.Services.AddDbContext<UsuariosContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("cnBilleteraMYSQL")));
+//builder.Services.AddDbContext<DeudasContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("cnBilleteraMYSQL")));
+//builder.Services.AddDbContext<ObjetivosCompraContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("cnBilleteraMYSQL")));
+//builder.Services.AddDbContext<PagosContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("cnBilleteraMYSQL")));
+//builder.Services.AddDbContext<UsuariosContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("cnBilleteraMYSQL")));
 //-------------------------------
 
 //builder.Services.AddScoped<IDeudasService, DeudasService>();

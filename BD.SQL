@@ -75,10 +75,10 @@ GRANT INSERT, UPDATE, DELETE ON BILLETERA.Usuarios TO billetera
 ALTER USER billetera QUOTA UNLIMITED ON tablespace;
 
 
-DROP TABLE BILLETERA.ObjetivosCompra;
-DROP TABLE BILLETERA.Pagos;
-DROP TABLE BILLETERA.Deudas;
-DROP TABLE BILLETERA.Usuarios;
+DROP TABLE BILLETERA."ObjetivosCompra";
+DROP TABLE BILLETERA."Pagos";
+DROP TABLE BILLETERA."Deudas";
+DROP TABLE BILLETERA."Usuarios";
 
 
 -- Tabla de Usuarios
@@ -174,6 +174,12 @@ CREATE TABLE BILLETERA.ObjetivosCompra (
 );
 
 
+select * from BILLETERA.Usuarios
+
+insert into BILLETERA.Usuarios (ID,Nombre,Email,Contrasena)values('414EC132-E129-49C7-86E7-7AF41D81C2BF','Guido Espinoza','galespinoza9@gmail.com','12345')
+insert into BILLETERA.Usuarios (ID,Nombre,Email,Contrasena)values('414EC132-E129-49C7-87E7-7AF41D81C2BF','jorge Espinoza','galespinoza9@gmail.com','12345')
+
+
 -------------------------------
 --Entity Framework POSTGRES
 -------------------------------
@@ -181,13 +187,12 @@ CREATE TABLE BILLETERA.ObjetivosCompra (
 CREATE DATABASE BDBILLETERA
 CREATE SCHEMA "BILLETERA" 
 
-DROP TABLE BILLETERA.ObjetivosCompra;
-DROP TABLE BILLETERA.Pagos;
-DROP TABLE BILLETERA.Deudas;
-DROP TABLE BILLETERA.Usuarios;
+DROP TABLE "BILLETERA"."ObjetivosCompra";
+DROP TABLE "BILLETERA"."Pagos";
+DROP TABLE "BILLETERA"."Deudas";
+DROP TABLE "BILLETERA"."Usuarios";
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-
 -- TABLA DE USUARIOS
 CREATE TABLE "BILLETERA"."Usuarios" (
     "ID" UUID PRIMARY KEY,
@@ -207,7 +212,7 @@ CREATE TABLE "BILLETERA"."Deudas" (
 );
 
 -- TABLA DE PAGOS
-CREATE TABLE "BILLETERA".Pagos (
+CREATE TABLE "BILLETERA"."Pagos" (
     "ID" UUID PRIMARY KEY,
     "DeudaID" UUID,
     "Monto" DECIMAL(10, 2),
@@ -216,7 +221,7 @@ CREATE TABLE "BILLETERA".Pagos (
 );
 
 -- TABLA DE OBJETIVOS DE COMPRA
-CREATE TABLE "BILLETERA".ObjetivosCompra (
+CREATE TABLE "BILLETERA"."ObjetivosCompra" (
     "ID" UUID PRIMARY KEY,
     "UsuarioID" UUID,
     "Producto" VARCHAR(100),
